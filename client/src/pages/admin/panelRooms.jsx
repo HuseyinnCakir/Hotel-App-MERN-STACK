@@ -66,7 +66,7 @@ const panelRooms = () => {
   const deleteFeatureV2 = (_id, featuresId, desc) => (e) => {
     e.preventDefault()
     console.log(desc)
-    const deleteElement = { _id: _id, featuresId: featuresId }
+    let deleteElement = { _id: _id, featuresId: featuresId }
     if (desc) {
       deleteElement = {
         _id: _id,
@@ -82,7 +82,7 @@ const panelRooms = () => {
   const deleteFeatureUl = (_id, featuresId, desc) => (e) => {
     e.preventDefault()
     console.log(desc)
-    const deleteElement = { _id: _id, subId: featuresId, desc: desc }
+    let deleteElement = { _id: _id, subId: featuresId, desc: desc }
 
     dispatch(deleteRoomFeatureUl({ deleteElement }))
     setTimeout(() => {

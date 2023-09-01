@@ -39,7 +39,14 @@ export default function TheHeader() {
           style={{ backgroundColor: '#e3f2fd' }}
         >
           <MDBContainer>
-            <MDBNavbarBrand href="/">Lavinia Apart Hotel</MDBNavbarBrand>
+            <MDBNavbarBrand href="/">
+              <img
+                src={`/src/assets/logo.png`}
+                className='h-30 w-30'
+                height={50}
+                alt=''
+                loading='lazy'
+              /></MDBNavbarBrand>
 
             <MDBNavbarToggler
               aria-controls="navbarSupportedContent"
