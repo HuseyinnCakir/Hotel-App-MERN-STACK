@@ -81,6 +81,7 @@ const panelServices = () => {
   }
   const updateData = (index) => (e) => {
     e.preventDefault()
+    console.log(services)
     if (!services[index].title || !services[index].desc) {
       dispatch(displayAlert())
       return
@@ -100,6 +101,7 @@ const panelServices = () => {
   const edit = (_id) => (e) => {
     setEditId(_id)
     dispatch(setEditData())
+
   }
   if (isLoading) {
     return (
@@ -134,6 +136,7 @@ const panelServices = () => {
           ></ModalComponent>
         )}
         {services?.map((item, index) => (
+
           <MDBRow
             key={item._id}
             className="d-flex justify-content-center align-items-center p-4"
@@ -180,9 +183,9 @@ const panelServices = () => {
               <div style={thumb}>
                 <div style={thumbInner}>
                   <img
-                    src={`/src/assets/images/${item.imageUrl}`}
+                    src={`/images/${item.imageUrl}`}
                     style={img}
-                    // Revoke data uri after image is loaded
+                  // Revoke data uri after image is loaded
                   />
                 </div>
               </div>

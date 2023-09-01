@@ -72,7 +72,7 @@ const Home = () => {
                     <MDBCarouselItem
                       className="rounded-5 w-100 d-block img-fluid "
                       itemId={++index}
-                      src={`/src/assets/images/${item}`}
+                      src={`./images/${item}`}
                       alt="Lavinia Apart Image"
                     ></MDBCarouselItem>
                   </div>
@@ -115,7 +115,7 @@ const Home = () => {
                 <div className="about_img">
                   <figure>
                     <img
-                      src={`/src/assets/images/${aboutUsImageUrl}`}
+                      src={`./images/${aboutUsImageUrl}`}
                       alt="About Us"
                     />
                   </figure>
@@ -162,7 +162,7 @@ const Home = () => {
               <MDBCol key={item._id}>
                 <MDBCard className="card bg-light h-100">
                   <MDBCardImage
-                    src={`/src/assets/images/${item.image}`}
+                    src={`./images/${item.image}`}
                     alt="..."
                     position="top"
                     className='class="card-img-top"'

@@ -43,7 +43,7 @@ export default function App() {
                   key={image}
                   className="w-100 d-block active"
                   itemId={++value}
-                  src={`/src/assets/images/${image}`}
+                  src={`./images/${image}`}
                   alt="Lavinia Apart Images"
                 />
               ))}

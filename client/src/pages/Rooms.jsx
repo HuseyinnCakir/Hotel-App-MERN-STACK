@@ -57,7 +57,7 @@ const Rooms = () => {
                       key={image}
                       className="w-100 d-block"
                       itemId={index + 1}
-                      src={`/src/assets/images/${image}`}
+                      src={`./images/${image}`}
                       alt="Lavinia Room Page"
                     />
                   ))}

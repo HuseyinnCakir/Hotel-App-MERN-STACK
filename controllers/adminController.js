@@ -86,13 +86,13 @@ const postHomePageImage = async (req, res) => {
 
 const updateHomePageImage = async (req, res) => {
   const { imageUrl } = req.body
-  console.log(imageUrl)
+  // console.log(imageUrl)
   const home = await Home.findOne({})
   //console.log(Array.isArray(imageUrl))
   if (Array.isArray(imageUrl)) {
     imageUrl.forEach(function (value) {
       if (Home.find({ titleImageUrl: value })) {
-        console.log(value)
+        //console.log(value)
         home.titleImageUrl.pull(value)
         clearImage(value)
       }
@@ -111,7 +111,7 @@ const updateHomePageImage = async (req, res) => {
   res.status(StatusCodes.OK).json(home.titleImageUrl)
 }
 const clearImage = (path) => {
-  const filePath = './client/src/assets/images/' + path
+  const filePath = './images/' + path
   //console.log(filePath)
   fs.unlinkSync(filePath, (err) => console.log(err))
 }
@@ -129,7 +129,7 @@ const createHotelInfo = async (req, res) => {
 }
 const deleteHotelInfo = async (req, res) => {
   const _id = req.body.id
-  console.log(_id)
+  //console.log(_id)
   const home = await Home.findOne({})
   const updatedHotelInfo = home.hotelInfo.pull({ _id: _id })
   //console.log(updatedHotelInfo)
@@ -162,16 +162,17 @@ const updateAboutUsImage = async (req, res) => {
     throw error
   }
   const home = await Home.findOne()
+  //console.log(home)
   clearImage(home.aboutUsImageUrl)
   let imageUrl
   imageUrl = req.files[0].filename
-
+  //console.log(imageUrl)
   home.aboutUsImageUrl = imageUrl
 
   //console.log(req.files)
 
   await home.save()
-  console.log(imageUrl)
+  //console.log(imageUrl)
   /*
   const home = await Home.findOneAndUpdate(
     { _id: req.body._id },
@@ -184,7 +185,7 @@ const updateAboutUsImage = async (req, res) => {
 const updateHomePageRoomsImage = async (req, res) => {
   //console.log(req)
   const id = req.body._id
-  console.log(id)
+  //console.log(id)
   //const ids = [...id]
   /* if (!req.files) {
     const error = new Error('No image provided.')
@@ -251,7 +252,7 @@ const createRoomFeature = async (req, res) => {
   const icon = req.body.icon
   const desc = req.body.desc
   const id = req.body._id
-  console.log(id)
+  //console.log(id)
   if (!desc || !icon) {
     throw new BadRequestError('Please provide all values')
   }
@@ -270,7 +271,7 @@ const createRoomFeatureV2 = async (req, res) => {
   const icon = req.body.icon
   const desc = req.body.desc
   const id = req.body._id
-  console.log(id)
+  // console.log(id)
   if (!desc || !icon) {
     throw new BadRequestError('Please provide all values')
   }
@@ -318,7 +319,7 @@ const deleteRoomFeatureUl = async (req, res) => {
   const desc = req.body.desc
   const id = req.body._id
   const subId = req.body.subId
-  console.log(subId)
+  //console.log(subId)
   if (!desc) {
     throw new BadRequestError('Please provide all values')
   }
@@ -335,7 +336,7 @@ const deleteRoomFeatureUl = async (req, res) => {
     }
   })
   await room.save()
-  console.log(room.roomsItem[0].featuresV2)
+  // console.log(room.roomsItem[0].featuresV2)
   //room.push(desc)
 
   //room[0].roomsItem[0].features.push(newObject)
@@ -346,7 +347,7 @@ const deleteRoomFeatureUl = async (req, res) => {
 const postRoomPageImage = async (req, res) => {
   //console.log(req)
   const id = req.body._id
-  console.log(id)
+  //console.log(id)
   if (!req.files) {
     const error = new Error('No image provided.')
     error.statusCode = 422
@@ -380,7 +381,7 @@ const postRoomPageImage = async (req, res) => {
 const deleteRoomFeature = async (req, res) => {
   const roomId = req.body._id
   const featuresId = req.body.featuresId
-  console.log(featuresId)
+  // console.log(featuresId)
 
   await Room.updateOne(
     { roomsItem: { $elemMatch: { _id: roomId } } },
@@ -395,7 +396,7 @@ const deleteRoomFeature = async (req, res) => {
 const deleteRoomFeatureV2 = async (req, res) => {
   const roomId = req.body._id
   const featuresId = req.body.featuresId
-  console.log(featuresId)
+  //console.log(featuresId)
 
   await Room.updateOne(
     { roomsItem: { $elemMatch: { _id: roomId } } },
@@ -409,9 +410,9 @@ const deleteRoomFeatureV2 = async (req, res) => {
 }
 const updateRoomPageImage = async (req, res) => {
   const { imageUrl } = req.body
-  console.log(imageUrl)
+  //console.log(imageUrl)
   const roomId = req.body._id
-  console.log(roomId)
+  // console.log(roomId)
   //console.log(Array.isArray(imageUrl))
 
   await Room.updateMany(
@@ -472,7 +473,7 @@ const createService = async (req, res) => {
   const newObject = { title: title, desc: desc, imageUrl: newImageUrl }
   const doc = new Services(newObject)
   await doc.save()
-  console.log(doc)
+  //console.log(doc)
   const allServices = await Services.find()
   res.status(StatusCodes.CREATED).json({ allServices })
 }
@@ -483,7 +484,7 @@ const getServices = async (req, res) => {
 }
 const deleteService = async (req, res) => {
   const _id = req.body._id
-  console.log(_id)
+  //console.log(_id)
   const doc = await Services.findOneAndDelete({ _id: _id })
   //console.log(doc)
   clearImage(doc.imageUrl)
@@ -508,7 +509,7 @@ const postServiceImage = async (req, res) => {
   clearImage(doc.imageUrl)
   let newImageUrl
   newImageUrl = req.files[0].filename
-  console.log(newImageUrl)
+  //console.log(newImageUrl)
   doc.imageUrl = newImageUrl
   await doc.save()
   const allServices = await Services.find()
@@ -540,7 +541,7 @@ const postGalleryPageImage = async (req, res) => {
     { $push: { titleImageUrl: imageUrl } }
   )*/
   const response = gallery
-  console.log(response)
+  //console.log(response)
   res.status(StatusCodes.OK).json({ response })
 }
 const getGalleryPageData = async (req, res) => {
@@ -550,13 +551,13 @@ const getGalleryPageData = async (req, res) => {
 }
 const updateGalleryPageImage = async (req, res) => {
   const { imageUrl } = req.body
-  console.log(imageUrl)
+  // console.log(imageUrl)
   const gallery = await Gallery.findOne({})
   //console.log(Array.isArray(imageUrl))
   if (Array.isArray(imageUrl)) {
     imageUrl.forEach(function (value) {
       if (Gallery.find({ imageUrl: value })) {
-        console.log(value)
+        //console.log(value)
         gallery.imageUrl.pull(value)
         clearImage(value)
       }
@@ -591,7 +592,7 @@ const updateContactPageData = async (req, res) => {
     googleLink,
     footerDesc,
   } = req.body
-  console.log(desc)
+  // console.log(desc)
   /* const contact = new Contact(
     desc,
     phone,

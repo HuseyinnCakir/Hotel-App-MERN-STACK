@@ -77,9 +77,10 @@ function ImageUploaded(props) {
   //  const [imageUrl, setImageUrl] = useState(homePage?.imageUrl)
   const [deleteFiles, setDeleteFiles] = useState([])
   const [files, setFiles] = useState([])
-
+  console.log(props.images)
   useEffect(() => {
     setFiles(props.images)
+    console.log(props.images)
   }, [props.images, props.page])
 
   /*useEffect(() => {
@@ -108,6 +109,7 @@ function ImageUploaded(props) {
     const newFiles = [...files]
     newFiles.splice(newFiles.indexOf(removeFile), 1)
     setFiles(newFiles)
+    console.log(props.images)
     //deleteFiles.splice(newFiles)
   }
 
@@ -116,9 +118,9 @@ function ImageUploaded(props) {
       <div style={thumb}>
         <div style={thumbInner}>
           <img
-            src={`/src/assets/images/${file}`}
+            src={`/images/${file}`}
             style={img}
-            // Revoke data uri after image is loaded
+          // Revoke data uri after image is loaded
           />
         </div>
       </div>

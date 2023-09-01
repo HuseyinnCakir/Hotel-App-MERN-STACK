@@ -38,7 +38,7 @@ const Services = () => {
           >
             <MDBCol md="6" className="mb-5 ">
               <img
-                src={`/src/assets/images/${item.imageUrl}`}
+                src={`./images/${item.imageUrl}`}
                 className="img-fluid shadow-4 me-4"
                 alt="..."
               />

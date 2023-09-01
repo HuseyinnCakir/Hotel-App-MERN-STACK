@@ -291,9 +291,9 @@ const panelHome = () => {
                 <div style={thumb}>
                   <div style={thumbInner}>
                     <img
-                      src={`/src/assets/images/${item.image}`}
+                      src={`./images/${item.image}`}
                       style={img}
-                      // Revoke data uri after image is loaded
+                    // Revoke data uri after image is loaded
                     />
                   </div>
                 </div>
@@ -423,9 +423,9 @@ const panelHome = () => {
           <div style={thumb}>
             <div style={thumbInner}>
               <img
-                src={`/src/assets/images/${aboutUsImageUrl}`}
+                src={`./images/${aboutUsImageUrl}`}
                 style={img}
-                // Revoke data uri after image is loaded
+              // Revoke data uri after image is loaded
               />
             </div>
           </div>

@@ -26,8 +26,11 @@ if ((process.env.NODE_ENV = !'production')) {
   app.use(morgan('dev'))
 }
 app.use(bodyParser.urlencoded({ extended: false }))
+
 app.use(bodyParser.json())
+
 app.use('/images', express.static(path.join(__dirname, 'images')))
+app.use(express.static(path.resolve(__dirname, './client/dist')))
 //app.use(uploadImage)
 /*app.post('/api/v1/admin/postHomeImage', (req, res, next) => {
   try {
@@ -52,6 +55,9 @@ app.use(cookieParser())
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/admin', adminRouter)
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'))
+})
 app.use(notFoundMiddleware)
 app.use(errorHandleMiddleware)
 
