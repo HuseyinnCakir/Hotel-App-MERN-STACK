@@ -63,14 +63,14 @@ const Home = () => {
   return (
     <div>
       <MDBContainer className="p-5 mb-5">
-        <MDBRow className="d-flex justify-content-center m-3 p-3">
+        <MDBRow className="d-flex justify-content-center mt-3 p-3">
           <MDBCol md="12" className="m-5 ">
             {homePage?.titleImageUrl && (
               <MDBCarousel showControls showIndicators>
                 {homePage.titleImageUrl.map((item, index) => (
                   <div key={item}>
                     <MDBCarouselItem
-                      className="w-100"
+                      className="d-block active w-100"
                       itemId={++index}
                       src={`./images/${item}`}
                       alt="Lavinia Apart Image"
@@ -83,9 +83,9 @@ const Home = () => {
         </MDBRow>
         <MDBRow className="d-flex justify-content-center mb-3 pb-3">
           <MDBCol md="12">
-            <div className="p-4 mt-2 text-center">
+            <div className="mt-1 text-center">
               <h1>{title}</h1>
-              <p className="mt-5">{titleDesc}</p>
+              <p className="mt-2">{titleDesc}</p>
               <MDBBtn
                 rounded
                 size="lg"
