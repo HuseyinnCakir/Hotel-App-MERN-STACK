@@ -35,7 +35,7 @@ export default function App() {
   return (
     <div className="m-5">
       <MDBContainer className="d-flex justify-content-center pt-4">
-        <MDBCol md="7" className="d-flex justify-content-center mb-5">
+        <MDBCol md="7" className="d-flex justify-content-center mb-5 p-3">
           {images?.map && (
             <MDBCarousel showControls showIndicators>
               {images.map((image, value = 0) => (

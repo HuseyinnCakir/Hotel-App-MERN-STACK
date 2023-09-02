@@ -41,7 +41,7 @@ export default function TheHeader() {
           <MDBContainer>
             <MDBNavbarBrand href="/">
               <img
-                src={`/src/assets/logo.png`}
+                src={`/images/logo.png`}
                 className='h-30 w-30'
                 height={50}
                 alt=''
